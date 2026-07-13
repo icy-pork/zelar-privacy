@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,12 +27,42 @@
   th{color:#C9A961;font-weight:600;letter-spacing:.02em;font-size:12px;text-transform:uppercase}
   td{color:#B7AC9B}
   strong{color:#F1E9DA;font-weight:600}
+
+  /* Header nav + language toggle */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+  .nav{display:flex;gap:18px;font-size:13px;letter-spacing:.04em}
+  .nav a{color:#7d7364;text-transform:uppercase;font-weight:600;font-size:12px;letter-spacing:.12em}
+  .nav a.active,.nav a:hover{color:#C9A961}
+  .lang-toggle{display:inline-flex;border:1px solid rgba(201,169,97,.35);border-radius:999px;overflow:hidden}
+  .lang-toggle button{appearance:none;border:0;background:transparent;color:#7d7364;font:600 12px/1 'Inter',system-ui,sans-serif;letter-spacing:.12em;padding:8px 14px;cursor:pointer}
+  .lang-toggle button.active{background:#C9A961;color:#160f09}
+  .lang-toggle button:not(.active):hover{color:#e2c689}
+
+  /* Language visibility */
+  html[data-lang="en"] [data-lang-block="da"]{display:none}
+  html[data-lang="da"] [data-lang-block="en"]{display:none}
 </style>
 </head>
 <body>
 
 <section style="min-height:100vh;background:#0d0a06;background-image:radial-gradient(circle at 12% -5%,rgba(139,35,50,.12),transparent 42%),radial-gradient(circle at 92% 6%,rgba(201,169,97,.07),transparent 40%);padding:56px 20px 96px">
 <div style="max-width:760px;margin:0 auto">
+
+  <!-- TOP BAR: nav + language toggle -->
+  <div class="topbar">
+    <nav class="nav">
+      <a href="index.html" class="active" data-nav>
+        <span data-lang-block="en">Privacy</span><span data-lang-block="da">Privatliv</span>
+      </a>
+      <a href="support.html" data-nav>
+        <span data-lang-block="en">Support</span><span data-lang-block="da">Support</span>
+      </a>
+    </nav>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" data-set-lang="en" aria-label="English">EN</button>
+      <button type="button" data-set-lang="da" aria-label="Dansk">DA</button>
+    </div>
+  </div>
 
   <!-- HEADER -->
   <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;border-bottom:1px solid rgba(201,169,97,.22);padding-bottom:34px;margin-bottom:44px">
@@ -43,90 +73,187 @@
           <span class="dot" style="margin-bottom:5px"></span>
         </div>
       </div>
-      <h1 style="font-size:38px">Privacy Policy</h1>
-      <p style="color:#7d7364;margin-top:14px;font-size:13px">Last updated: July 13, 2026</p>
+      <div data-lang-block="en">
+        <h1 style="font-size:38px">Privacy Policy</h1>
+        <p style="color:#7d7364;margin-top:14px;font-size:13px">Last updated: July 13, 2026</p>
+      </div>
+      <div data-lang-block="da">
+        <h1 style="font-size:38px">Privatlivspolitik</h1>
+        <p style="color:#7d7364;margin-top:14px;font-size:13px">Senest opdateret: 13. juli 2026</p>
+      </div>
     </div>
   </div>
 
-  <div class="card">
-    <p>Zélar is a personal wine cellar app built and maintained by a single independent developer, not a company. This policy explains what data Zélar collects, where it lives, and the choices you have.</p>
-    <p style="margin-bottom:0">In short: <strong>your cellar data stays on your device</strong>, with an optional, user-controlled backup to your own iCloud account. Separately, <strong>anonymized usage analytics</strong> help improve the app, and you can turn this off at any time in Settings.</p>
-  </div>
+  <!-- ============ ENGLISH ============ -->
+  <div data-lang-block="en" lang="en">
 
-  <!-- YOUR DATA -->
-  <div class="card">
-    <div class="section-label">Your wine cellar data</div>
-    <h2>Stored locally on your device</h2>
-    <p style="margin-top:14px">All data you enter into Zélar — your cellars, racks, shelves, wines, bottles, tasting notes, and drinking windows — is stored locally on your iPhone or iPad using Apple's SwiftData framework. This data never passes through the developer's servers, because there are none. Nobody but you has access to it.</p>
-
-    <h2 style="margin-top:26px">Optional iCloud backup</h2>
-    <p style="margin-top:14px">Zélar offers optional backup and sync via your personal iCloud account (Apple CloudKit). If you enable this feature, your cellar data is stored in your own private iCloud container, governed by Apple's privacy practices, so it can sync across your devices or be restored if you get a new one.</p>
-    <ul>
-      <li>iCloud backup is <strong>off by default</strong> unless you turn it on.</li>
-      <li>You can disable it at any time in the app's Settings.</li>
-      <li>The developer cannot access iCloud data stored under your personal Apple ID — it is end-to-end tied to your account, the same as your Photos or Notes.</li>
-    </ul>
-
-    <h2 style="margin-top:26px">AI clipboard workflows</h2>
-    <p style="margin-top:14px">Zélar can export parts of your cellar as text (Markdown) so you can paste it into an AI assistant of your choice, and can import structured text you paste back in. This happens entirely through your device's clipboard. Zélar does not send this data to any AI service directly, and has no API integration with any AI provider — what you choose to paste elsewhere is between you and that service.</p>
-  </div>
-
-  <!-- ANALYTICS -->
-  <div class="card">
-    <div class="section-label">Usage analytics</div>
-    <h2>PostHog</h2>
-    <p style="margin-top:14px">Zélar uses <a href="https://posthog.com" target="_blank" rel="noopener">PostHog</a>, a product analytics service, to understand how the app is used and to identify bugs and areas for improvement. Analytics data is processed on PostHog's <strong>EU-hosted servers</strong>.</p>
-    <p>The analytics collected are limited to anonymized product-usage events, such as which screens are opened or which features are used. Zélar is designed so that this data is not used to identify you personally.</p>
-    <ul>
-      <li>You can <strong>opt out of analytics at any time</strong> in the app's Settings. When opted out, no further usage data is sent.</li>
-      <li>Analytics collection is separate from your cellar data — your wines, bottles, and notes are never sent to PostHog.</li>
-    </ul>
-
-    <div class="table-wrap" style="margin-top:20px">
-      <table>
-        <tr><th>Data type</th><th>Where it lives</th><th>Your control</th></tr>
-        <tr><td>Cellar data (wines, bottles, notes, drinking windows)</td><td>Locally on your device</td><td>Fully yours; never leaves the device unless you export it</td></tr>
-        <tr><td>iCloud backup (optional)</td><td>Your personal iCloud account (Apple CloudKit)</td><td>Off by default; toggle on/off in Settings</td></tr>
-        <tr><td>Anonymized usage analytics</td><td>PostHog, EU servers</td><td>Opt out anytime in Settings</td></tr>
-      </table>
+    <div class="card">
+      <p>Zélar is a personal wine cellar app built and maintained by a single independent developer, not a company. This policy explains what data Zélar collects, where it lives, and the choices you have.</p>
+      <p style="margin-bottom:0">In short: <strong>your cellar data stays on your device</strong>, with an optional, user-controlled backup to your own iCloud account. Separately, <strong>anonymized usage analytics</strong> help improve the app, and you can turn this off at any time in Settings.</p>
     </div>
+
+    <!-- YOUR DATA -->
+    <div class="card">
+      <div class="section-label">Your wine cellar data</div>
+      <h2>Stored locally on your device</h2>
+      <p style="margin-top:14px">All data you enter into Zélar — your cellars, racks, shelves, wines, bottles, tasting notes, and drinking windows — is stored locally on your iPhone or iPad using Apple's SwiftData framework. This data never passes through the developer's servers, because there are none. Nobody but you has access to it.</p>
+
+      <h2 style="margin-top:26px">Optional iCloud backup</h2>
+      <p style="margin-top:14px">Zélar offers optional backup and sync via your personal iCloud account (Apple CloudKit). If you enable this feature, your cellar data is stored in your own private iCloud container, governed by Apple's privacy practices, so it can sync across your devices or be restored if you get a new one.</p>
+      <ul>
+        <li>iCloud backup is <strong>off by default</strong> unless you turn it on.</li>
+        <li>You can disable it at any time in the app's Settings.</li>
+        <li>The developer cannot access iCloud data stored under your personal Apple ID — it is end-to-end tied to your account, the same as your Photos or Notes.</li>
+      </ul>
+
+      <h2 style="margin-top:26px">AI clipboard workflows</h2>
+      <p style="margin-top:14px">Zélar can export parts of your cellar as text (Markdown) so you can paste it into an AI assistant of your choice, and can import structured text you paste back in. This happens entirely through your device's clipboard. Zélar does not send this data to any AI service directly, and has no API integration with any AI provider — what you choose to paste elsewhere is between you and that service.</p>
+    </div>
+
+    <!-- ANALYTICS -->
+    <div class="card">
+      <div class="section-label">Usage analytics</div>
+      <h2>PostHog</h2>
+      <p style="margin-top:14px">Zélar uses <a href="https://posthog.com" target="_blank" rel="noopener">PostHog</a>, a product analytics service, to understand how the app is used and to identify bugs and areas for improvement. Analytics data is processed on PostHog's <strong>EU-hosted servers</strong>.</p>
+      <p>The analytics collected are limited to anonymized product-usage events, such as which screens are opened or which features are used. Zélar is designed so that this data is not used to identify you personally.</p>
+      <ul>
+        <li>You can <strong>opt out of analytics at any time</strong> in the app's Settings. When opted out, no further usage data is sent.</li>
+        <li>Analytics collection is separate from your cellar data — your wines, bottles, and notes are never sent to PostHog.</li>
+      </ul>
+
+      <div class="table-wrap" style="margin-top:20px">
+        <table>
+          <tr><th>Data type</th><th>Where it lives</th><th>Your control</th></tr>
+          <tr><td>Cellar data (wines, bottles, notes, drinking windows)</td><td>Locally on your device</td><td>Fully yours; never leaves the device unless you export it</td></tr>
+          <tr><td>iCloud backup (optional)</td><td>Your personal iCloud account (Apple CloudKit)</td><td>Off by default; toggle on/off in Settings</td></tr>
+          <tr><td>Anonymized usage analytics</td><td>PostHog, EU servers</td><td>Opt out anytime in Settings</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- WHAT WE DON'T DO -->
+    <div class="card">
+      <div class="section-label">What Zélar does not do</div>
+      <ul style="margin-top:14px">
+        <li>No accounts, sign-ups, or passwords required to use the app.</li>
+        <li>No advertising, and no third-party ad networks.</li>
+        <li>No selling or sharing of your data with third parties for marketing purposes.</li>
+        <li>No API-based AI integration that transmits your cellar data to an AI provider automatically.</li>
+      </ul>
+    </div>
+
+    <!-- CHILDREN -->
+    <div class="card">
+      <div class="section-label">Children's privacy</div>
+      <p style="margin-top:14px">Zélar is a wine cellar management app intended for adults of legal drinking age in their jurisdiction. It is not directed at children, and does not knowingly collect data from children.</p>
+    </div>
+
+    <!-- YOUR RIGHTS -->
+    <div class="card">
+      <div class="section-label">Your rights and choices</div>
+      <p style="margin-top:14px">Depending on where you live, you may have rights under laws such as the EU General Data Protection Regulation (GDPR) or the California Consumer Privacy Act (CCPA), including the right to access, correct, delete, or export your data.</p>
+      <p>Since your cellar data is stored locally on your device, you have direct control over it at all times — you can export, edit, or delete it directly in the app, or remove it entirely by deleting the app. For questions about PostHog analytics data, you can contact the developer using the details below, or opt out directly in-app.</p>
+    </div>
+
+    <!-- CHANGES -->
+    <div class="card">
+      <div class="section-label">Changes to this policy</div>
+      <p style="margin-top:14px">This policy may be updated occasionally to reflect changes in the app or applicable law. The "Last updated" date at the top of this page will always reflect the most recent revision. Continued use of Zélar after changes take effect constitutes acceptance of the updated policy.</p>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="card" style="margin-bottom:0">
+      <div class="section-label">Contact</div>
+      <p style="margin-top:14px">Zélar is developed independently, not by a company. If you have questions about this privacy policy or your data, you can reach the developer at:</p>
+      <p style="margin-bottom:0"><a href="mailto:anders@whaaat.co" class="mono">anders@whaaat.co</a></p>
+    </div>
+
   </div>
 
-  <!-- WHAT WE DON'T DO -->
-  <div class="card">
-    <div class="section-label">What Zélar does not do</div>
-    <ul style="margin-top:14px">
-      <li>No accounts, sign-ups, or passwords required to use the app.</li>
-      <li>No advertising, and no third-party ad networks.</li>
-      <li>No selling or sharing of your data with third parties for marketing purposes.</li>
-      <li>No API-based AI integration that transmits your cellar data to an AI provider automatically.</li>
-    </ul>
-  </div>
+  <!-- ============ DANSK ============ -->
+  <div data-lang-block="da" lang="da">
 
-  <!-- CHILDREN -->
-  <div class="card">
-    <div class="section-label">Children's privacy</div>
-    <p style="margin-top:14px">Zélar is a wine cellar management app intended for adults of legal drinking age in their jurisdiction. It is not directed at children, and does not knowingly collect data from children.</p>
-  </div>
+    <div class="card">
+      <p>Zélar er en personlig vinkælder-app, som er udviklet og vedligeholdt af én enkelt uafhængig udvikler — ikke en virksomhed. Denne politik forklarer, hvilke data Zélar indsamler, hvor de opbevares, og hvilke valgmuligheder du har.</p>
+      <p style="margin-bottom:0">Kort fortalt: <strong>dine kælderdata bliver på din enhed</strong>, med en valgfri, brugerstyret backup til din egen iCloud-konto. Derudover hjælper <strong>anonymiseret brugsstatistik</strong> med at forbedre appen — og du kan altid slå den fra under Indstillinger.</p>
+    </div>
 
-  <!-- YOUR RIGHTS -->
-  <div class="card">
-    <div class="section-label">Your rights and choices</div>
-    <p style="margin-top:14px">Depending on where you live, you may have rights under laws such as the EU General Data Protection Regulation (GDPR) or the California Consumer Privacy Act (CCPA), including the right to access, correct, delete, or export your data.</p>
-    <p>Since your cellar data is stored locally on your device, you have direct control over it at all times — you can export, edit, or delete it directly in the app, or remove it entirely by deleting the app. For questions about PostHog analytics data, you can contact the developer using the details below, or opt out directly in-app.</p>
-  </div>
+    <!-- DINE DATA -->
+    <div class="card">
+      <div class="section-label">Dine vinkælderdata</div>
+      <h2>Gemmes lokalt på din enhed</h2>
+      <p style="margin-top:14px">Alle data, du indtaster i Zélar — dine kældre, reoler, hylder, vine, flasker, smagsnoter og drikkevinduer — gemmes lokalt på din iPhone eller iPad ved hjælp af Apples SwiftData-teknologi. Disse data passerer aldrig gennem udviklerens servere, for der findes ingen. Ingen andre end dig har adgang til dem.</p>
 
-  <!-- CHANGES -->
-  <div class="card">
-    <div class="section-label">Changes to this policy</div>
-    <p style="margin-top:14px">This policy may be updated occasionally to reflect changes in the app or applicable law. The "Last updated" date at the top of this page will always reflect the most recent revision. Continued use of Zélar after changes take effect constitutes acceptance of the updated policy.</p>
-  </div>
+      <h2 style="margin-top:26px">Valgfri iCloud-backup</h2>
+      <p style="margin-top:14px">Zélar tilbyder valgfri backup og synkronisering via din personlige iCloud-konto (Apple CloudKit). Hvis du slår denne funktion til, gemmes dine kælderdata i din egen private iCloud-container, underlagt Apples privatlivspraksis, så de kan synkroniseres på tværs af dine enheder eller gendannes, hvis du får en ny.</p>
+      <ul>
+        <li>iCloud-backup er <strong>slået fra som standard</strong>, medmindre du selv slår den til.</li>
+        <li>Du kan når som helst slå den fra i appens Indstillinger.</li>
+        <li>Udvikleren har ikke adgang til iCloud-data gemt under dit personlige Apple-id — de er knyttet til din konto på samme måde som dine Fotos eller Noter.</li>
+      </ul>
 
-  <!-- CONTACT -->
-  <div class="card" style="margin-bottom:0">
-    <div class="section-label">Contact</div>
-    <p style="margin-top:14px">Zélar is developed independently, not by a company. If you have questions about this privacy policy or your data, you can reach the developer at:</p>
-    <p style="margin-bottom:0"><a href="mailto:anders@whaaat.co" class="mono">anders@whaaat.co</a></p>
+      <h2 style="margin-top:26px">AI-arbejdsgange via udklipsholderen</h2>
+      <p style="margin-top:14px">Zélar kan eksportere dele af din kælder som tekst (Markdown), så du kan indsætte den i en AI-assistent efter eget valg, og kan importere struktureret tekst, som du indsætter igen. Det hele foregår udelukkende via enhedens udklipsholder. Zélar sender ikke disse data direkte til nogen AI-tjeneste og har ingen API-integration med nogen AI-udbyder — hvad du vælger at indsætte andre steder, er mellem dig og den pågældende tjeneste.</p>
+    </div>
+
+    <!-- STATISTIK -->
+    <div class="card">
+      <div class="section-label">Brugsstatistik</div>
+      <h2>PostHog</h2>
+      <p style="margin-top:14px">Zélar bruger <a href="https://posthog.com" target="_blank" rel="noopener">PostHog</a>, en produktanalyse-tjeneste, til at forstå, hvordan appen bruges, og til at finde fejl og forbedringsmuligheder. Analysedata behandles på PostHogs <strong>servere i EU</strong>.</p>
+      <p>Den indsamlede statistik er begrænset til anonymiserede hændelser om brugen af appen, f.eks. hvilke skærme der åbnes, eller hvilke funktioner der bruges. Zélar er designet, så disse data ikke bruges til at identificere dig personligt.</p>
+      <ul>
+        <li>Du kan <strong>når som helst fravælge statistik</strong> i appens Indstillinger. Når du har fravalgt, sendes der ikke flere brugsdata.</li>
+        <li>Statistikindsamlingen er adskilt fra dine kælderdata — dine vine, flasker og noter sendes aldrig til PostHog.</li>
+      </ul>
+
+      <div class="table-wrap" style="margin-top:20px">
+        <table>
+          <tr><th>Datatype</th><th>Hvor de opbevares</th><th>Din kontrol</th></tr>
+          <tr><td>Kælderdata (vine, flasker, noter, drikkevinduer)</td><td>Lokalt på din enhed</td><td>Helt dine egne; forlader aldrig enheden, medmindre du eksporterer dem</td></tr>
+          <tr><td>iCloud-backup (valgfri)</td><td>Din personlige iCloud-konto (Apple CloudKit)</td><td>Slået fra som standard; slå til/fra i Indstillinger</td></tr>
+          <tr><td>Anonymiseret brugsstatistik</td><td>PostHog, EU-servere</td><td>Fravælg når som helst i Indstillinger</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- HVAD VI IKKE GØR -->
+    <div class="card">
+      <div class="section-label">Hvad Zélar ikke gør</div>
+      <ul style="margin-top:14px">
+        <li>Ingen konti, tilmeldinger eller adgangskoder er nødvendige for at bruge appen.</li>
+        <li>Ingen reklamer og ingen tredjeparts-annoncenetværk.</li>
+        <li>Intet salg eller deling af dine data med tredjeparter til markedsføringsformål.</li>
+        <li>Ingen API-baseret AI-integration, der automatisk sender dine kælderdata til en AI-udbyder.</li>
+      </ul>
+    </div>
+
+    <!-- BØRN -->
+    <div class="card">
+      <div class="section-label">Børns privatliv</div>
+      <p style="margin-top:14px">Zélar er en app til administration af vinkældre og er beregnet til voksne over den lovlige alkoholalder i deres land. Den henvender sig ikke til børn og indsamler ikke bevidst data fra børn.</p>
+    </div>
+
+    <!-- DINE RETTIGHEDER -->
+    <div class="card">
+      <div class="section-label">Dine rettigheder og valgmuligheder</div>
+      <p style="margin-top:14px">Afhængigt af hvor du bor, kan du have rettigheder efter lovgivning som EU's databeskyttelsesforordning (GDPR) eller California Consumer Privacy Act (CCPA), herunder retten til at få adgang til, rette, slette eller eksportere dine data.</p>
+      <p>Da dine kælderdata gemmes lokalt på din enhed, har du til enhver tid direkte kontrol over dem — du kan eksportere, redigere eller slette dem direkte i appen eller fjerne dem helt ved at slette appen. Ved spørgsmål om PostHog-analysedata kan du kontakte udvikleren via oplysningerne nedenfor eller fravælge statistik direkte i appen.</p>
+    </div>
+
+    <!-- ÆNDRINGER -->
+    <div class="card">
+      <div class="section-label">Ændringer af denne politik</div>
+      <p style="margin-top:14px">Denne politik kan blive opdateret fra tid til anden for at afspejle ændringer i appen eller gældende lovgivning. Datoen "Senest opdateret" øverst på siden vil altid vise den seneste revision. Fortsat brug af Zélar, efter at ændringer er trådt i kraft, betragtes som accept af den opdaterede politik.</p>
+    </div>
+
+    <!-- KONTAKT -->
+    <div class="card" style="margin-bottom:0">
+      <div class="section-label">Kontakt</div>
+      <p style="margin-top:14px">Zélar udvikles uafhængigt, ikke af en virksomhed. Hvis du har spørgsmål til denne privatlivspolitik eller dine data, kan du kontakte udvikleren på:</p>
+      <p style="margin-bottom:0"><a href="mailto:anders@whaaat.co" class="mono">anders@whaaat.co</a></p>
+    </div>
+
   </div>
 
   <div style="text-align:center;margin-top:48px;color:#7d7364;font-size:12px">
@@ -135,5 +262,59 @@
 
 </div>
 </section>
+
+<script>
+(function(){
+  var TITLES = {
+    en: 'Zélar — Privacy Policy',
+    da: 'Zélar — Privatlivspolitik'
+  };
+
+  function currentLangFromUrl(){
+    var params = new URLSearchParams(location.search);
+    var lang = params.get('lang');
+    if(!lang && (location.hash === '#da' || location.hash === '#en')) lang = location.hash.slice(1);
+    return lang;
+  }
+
+  function setLang(lang, updateUrl){
+    lang = lang === 'da' ? 'da' : 'en';
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.lang = lang;
+    document.title = TITLES[lang];
+    try{ localStorage.setItem('zelar-lang', lang); }catch(e){}
+
+    document.querySelectorAll('[data-set-lang]').forEach(function(btn){
+      btn.classList.toggle('active', btn.getAttribute('data-set-lang') === lang);
+    });
+
+    // Keep nav links deep-linkable in the current language
+    document.querySelectorAll('[data-nav]').forEach(function(a){
+      var base = a.getAttribute('href').split('?')[0];
+      a.setAttribute('href', base + '?lang=' + lang);
+    });
+
+    if(updateUrl){
+      var params = new URLSearchParams(location.search);
+      params.set('lang', lang);
+      history.replaceState(null, '', location.pathname + '?' + params.toString());
+    }
+  }
+
+  // Initial language: URL (?lang= or #da) > saved preference > browser language > EN
+  var lang = currentLangFromUrl();
+  if(!lang){
+    try{ lang = localStorage.getItem('zelar-lang'); }catch(e){}
+  }
+  if(!lang){
+    lang = (navigator.language || '').toLowerCase().indexOf('da') === 0 ? 'da' : 'en';
+  }
+  setLang(lang, currentLangFromUrl() !== null);
+
+  document.querySelectorAll('[data-set-lang]').forEach(function(btn){
+    btn.addEventListener('click', function(){ setLang(btn.getAttribute('data-set-lang'), true); });
+  });
+})();
+</script>
 </body>
 </html>

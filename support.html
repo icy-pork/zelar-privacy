@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zélar — Support</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{margin:0;background:#0d0a06;font-family:'Inter',system-ui,sans-serif;color:#B7AC9B}
+  a{color:#C9A961;text-decoration:none}
+  a:hover{color:#e2c689}
+  code, .mono{font-family:'JetBrains Mono',monospace}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:#F1E9DA;letter-spacing:-.02em;margin:0}
+  h2{font-size:22px;margin-top:0}
+  h3{font-size:17px;margin-top:22px;margin-bottom:8px}
+  .section-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#C9A961;margin-bottom:14px}
+  p{line-height:1.7;font-size:15px;margin:0 0 14px}
+  ul,ol{margin:0 0 14px;padding-left:20px;line-height:1.8;font-size:15px}
+  li{margin-bottom:6px}
+  .card{background:#160f09;border:1px solid rgba(201,169,97,.16);border-radius:18px;padding:30px 32px;margin-bottom:24px}
+  .dot{width:7px;height:7px;border-radius:50%;background:#8B2332;display:inline-block}
+  .table-wrap{overflow-x:auto}
+  table{border-collapse:collapse;width:100%;font-size:14px}
+  th,td{text-align:left;padding:10px 14px;border-bottom:1px solid rgba(201,169,97,.14);vertical-align:top}
+  th{color:#C9A961;font-weight:600;letter-spacing:.02em;font-size:12px;text-transform:uppercase}
+  td{color:#B7AC9B}
+  strong{color:#F1E9DA;font-weight:600}
+  .ui{font-weight:600;color:#F1E9DA}
+
+  /* Header nav + language toggle */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+  .nav{display:flex;gap:18px;font-size:13px;letter-spacing:.04em}
+  .nav a{color:#7d7364;text-transform:uppercase;font-weight:600;font-size:12px;letter-spacing:.12em}
+  .nav a.active,.nav a:hover{color:#C9A961}
+  .lang-toggle{display:inline-flex;border:1px solid rgba(201,169,97,.35);border-radius:999px;overflow:hidden}
+  .lang-toggle button{appearance:none;border:0;background:transparent;color:#7d7364;font:600 12px/1 'Inter',system-ui,sans-serif;letter-spacing:.12em;padding:8px 14px;cursor:pointer}
+  .lang-toggle button.active{background:#C9A961;color:#160f09}
+  .lang-toggle button:not(.active):hover{color:#e2c689}
+
+  /* Language visibility */
+  html[data-lang="en"] [data-lang-block="da"]{display:none}
+  html[data-lang="da"] [data-lang-block="en"]{display:none}
+</style>
+</head>
+<body>
+
+<section style="min-height:100vh;background:#0d0a06;background-image:radial-gradient(circle at 12% -5%,rgba(139,35,50,.12),transparent 42%),radial-gradient(circle at 92% 6%,rgba(201,169,97,.07),transparent 40%);padding:56px 20px 96px">
+<div style="max-width:760px;margin:0 auto">
+
+  <!-- TOP BAR: nav + language toggle -->
+  <div class="topbar">
+    <nav class="nav">
+      <a href="index.html" data-nav>
+        <span data-lang-block="en">Privacy</span><span data-lang-block="da">Privatliv</span>
+      </a>
+      <a href="support.html" class="active" data-nav>
+        <span data-lang-block="en">Support</span><span data-lang-block="da">Support</span>
+      </a>
+    </nav>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" data-set-lang="en" aria-label="English">EN</button>
+      <button type="button" data-set-lang="da" aria-label="Dansk">DA</button>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;border-bottom:1px solid rgba(201,169,97,.22);padding-bottom:34px;margin-bottom:44px">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+        <div style="display:flex;align-items:baseline;gap:4px">
+          <div style="font-family:'Fraunces',serif;font-weight:500;font-size:34px;line-height:.9;color:#F1E9DA;letter-spacing:-.02em">zélar</div>
+          <span class="dot" style="margin-bottom:5px"></span>
+        </div>
+      </div>
+      <div data-lang-block="en">
+        <h1 style="font-size:38px">Support &amp; User Guide</h1>
+        <p style="color:#7d7364;margin-top:14px;font-size:13px">Last updated: July 13, 2026</p>
+      </div>
+      <div data-lang-block="da">
+        <h1 style="font-size:38px">Support &amp; brugerguide</h1>
+        <p style="color:#7d7364;margin-top:14px;font-size:13px">Senest opdateret: 13. juli 2026</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ENGLISH ============ -->
+  <div data-lang-block="en" lang="en">
+
+    <div class="card">
+      <p>Zélar is a personal wine cellar for your iPhone and iPad. You build your racks and wine fridges as they stand at home, place every bottle where it actually lives, and let the app keep track of what's ready to drink. The name comes from the Portuguese <em>zelar</em> — to watch over, to care for.</p>
+      <p style="margin-bottom:0">Everything is stored on your device (with optional iCloud sync), and there is no account to create. This guide walks through every part of the app. Questions the guide doesn't answer? Write to <a href="mailto:anders@whaaat.co" class="mono">anders@whaaat.co</a>.</p>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div class="card">
+      <div class="section-label">Getting around</div>
+      <h2>The five tabs</h2>
+      <div class="table-wrap" style="margin-top:16px">
+        <table>
+          <tr><th>Tab</th><th>What it does</th></tr>
+          <tr><td><span class="ui">Cellar</span></td><td>Your home base: bottle count and value, quick filters, your storage units, and the <span class="ui">+</span> menu for adding wines and racks.</td></tr>
+          <tr><td><span class="ui">Rack</span></td><td>A visual, swipeable view of each rack and wine fridge — tap any slot or shelf to see what's in it.</td></tr>
+          <tr><td><span class="ui">Insights</span></td><td>Your cellar in numbers: distribution by type, country and vintage, total value, and your personal taste profile.</td></tr>
+          <tr><td><span class="ui">Tasted</span></td><td>Your tasting log — every bottle you've drunk from the cellar, plus wines tasted out at restaurants and with friends.</td></tr>
+          <tr><td><span class="ui">More</span></td><td>Settings, backup &amp; restore, the AI tools, and Markdown export.</td></tr>
+        </table>
+      </div>
+      <p style="margin-top:16px;margin-bottom:0">The first time you open Zélar, a short welcome guide introduces the main ideas. You can replay it any time under <span class="ui">More → Introduction</span>.</p>
+    </div>
+
+    <!-- GETTING STARTED -->
+    <div class="card">
+      <div class="section-label">Getting started</div>
+      <h2>Build your cellar in three steps</h2>
+      <ol style="margin-top:14px">
+        <li><strong>Create a storage unit.</strong> On the Cellar tab, tap <span class="ui">+</span> → <span class="ui">New rack or fridge</span>. A <em>rack</em> is a grid of rows and columns of slots (A1, A2, B1 …); a <em>wine fridge</em> has stacked shelves, a set temperature, and optional temperature zones. You can also add an "other" unit for boxes and loose storage. Everything can be renamed and resized later.</li>
+        <li><strong>Add your wines.</strong> Tap <span class="ui">+ Add wine</span> and fill in what you know — only the wine's name is required. You can record producer, vintage, country, region, appellation, type, style, grapes, organic/biodynamic certification, price, alcohol %, a drinking window, notes, and photos of the label.</li>
+        <li><strong>Place your bottles.</strong> When adding a wine, choose the number of bottles and a placement — for example "Rack A · A3". Bottles without a placement are collected under <span class="ui">No placement</span> so you can sort them out later.</li>
+      </ol>
+      <p style="margin-bottom:0">You can keep several cellars (home, summer house, storage locker …) — switch between them with the cellar chip at the top of the Cellar tab, or manage them under <span class="ui">More → Cellars</span>.</p>
+    </div>
+
+    <!-- DAILY USE -->
+    <div class="card">
+      <div class="section-label">Everyday use</div>
+      <h2>Bottles in, bottles out</h2>
+
+      <h3>Drinking a bottle</h3>
+      <p>Open a wine, pick a bottle and tap <span class="ui">Drink</span>. You can set the date, a 1–5 star rating, a tasting note, and the occasion, then save it as drunk. The bottle leaves your stock and appears in your tasting log. Tapped too soon? Use <span class="ui">Undo — back in stock</span> in the bottle's context menu.</p>
+
+      <h3>Adjusting stock</h3>
+      <p>Bought more of a wine you already have? On the wine's page, use <span class="ui">Edit stock</span> to add bottles (with placement and purchase date) or remove miscounted ones. Removed bottles are simply deleted — they are not marked as drunk.</p>
+
+      <h3>Moving bottles</h3>
+      <p>Use <span class="ui">Move</span> on any bottle to give it a new slot or shelf. On the Rack tab you can tap a slot to see its contents and add wine directly to that spot.</p>
+
+      <h3>Finding a wine</h3>
+      <p style="margin-bottom:0"><span class="ui">See all wines</span> opens the full list with search (by name, grape, country or region) and filter chips: <span class="ui">All · In stock · Drunk · No placement · Red · White · Ready now</span>.</p>
+    </div>
+
+    <!-- DRINKING WINDOWS -->
+    <div class="card">
+      <div class="section-label">Drinking windows</div>
+      <h2>Know when to pull the cork</h2>
+      <p style="margin-top:14px">Give a wine a drinking window (e.g. "2026–2042", optionally with a peak year) and Zélar tracks where the wine is in its life: too young, ready, at peak, closing soon, or past. The Cellar tab shows a shortcut to everything that's <strong>ready to drink now</strong>, and Insights lists what's ready and what to <strong>drink soon</strong> — so nothing quietly slips past its window.</p>
+    </div>
+
+    <!-- TASTINGS -->
+    <div class="card">
+      <div class="section-label">Tastings</div>
+      <h2>Your tasting log</h2>
+      <p style="margin-top:14px">The <span class="ui">Tasted</span> tab gathers everything you've tasted: bottles drunk from your own cellar, and wines you've tasted elsewhere.</p>
+      <ul style="margin-bottom:0">
+        <li><strong>Tasted a great wine at a restaurant?</strong> Tap <span class="ui">+ New tasting</span> and log it with place, date, rating, note, price and photos — no cellar bottle needed.</li>
+        <li><strong>Bought it afterwards?</strong> Use <span class="ui">Convert to stock</span> on the tasting to create it as a cellar wine with bottles, carrying your rating and note along. The tasting stays in your log, marked as converted.</li>
+      </ul>
+    </div>
+
+    <!-- INSIGHTS -->
+    <div class="card">
+      <div class="section-label">Insights</div>
+      <h2>Your cellar in numbers</h2>
+      <p style="margin-top:14px">The <span class="ui">Insights</span> tab shows your collection by type, country, and vintage, along with total value and average price per bottle, plus per-country statistics.</p>
+      <p style="margin-bottom:0">As you rate wines, Zélar unlocks <span class="ui">My taste</span> — a personal taste profile built from your own ratings: the style you love most, your favourite grapes with average scores, and your top-rated wines.</p>
+    </div>
+
+    <!-- AI -->
+    <div class="card">
+      <div class="section-label">Use your own AI</div>
+      <h2>Copy, paste — no API keys</h2>
+      <p style="margin-top:14px">Zélar works with whichever AI assistant you already use (ChatGPT, Claude, or another). Everything goes through your clipboard — the app never talks to any AI service itself.</p>
+
+      <h3>Ask your AI</h3>
+      <p>Under <span class="ui">More → Ask your AI</span>, choose a task — <em>food pairing for dinner</em>, <em>value my cellar</em>, <em>buying suggestions</em>, or <em>the restaurant wine list</em> — and tap <span class="ui">Copy prompt</span>. You get a ready-made prompt that includes a compact inventory of your cellar and tasting history. Paste it into your AI and get answers about <em>your</em> wines.</p>
+
+      <h3>Paste from AI</h3>
+      <p>Asked your AI to suggest wines, or transcribed a receipt or a cellar list? <span class="ui">More → Paste from AI</span> reads structured text from your clipboard and creates the wines automatically, including placement. Tap the <span class="ui">?</span> in the corner for the exact format and a <span class="ui">Copy format</span> button — copy that into your AI first, and its answers will come back in a form Zélar understands (both Danish and English field names are recognized). There's a matching import for tasted wines on the Tasted tab.</p>
+
+      <h3>Export as Markdown</h3>
+      <p style="margin-bottom:0"><span class="ui">More → Export as Markdown</span> renders your whole cellar as a readable document — grouped by cellar, rack and shelf, with unplaced bottles and your tasting history. <span class="ui">Copy</span> it or <span class="ui">Share as file</span>. Tip: keep it in an AI project or chat, and your assistant always knows your collection.</p>
+    </div>
+
+    <!-- SYNC & BACKUP -->
+    <div class="card">
+      <div class="section-label">Sync, backup &amp; restore</div>
+      <h2>Keeping your data safe</h2>
+      <h3>iCloud sync</h3>
+      <p><span class="ui">More → Data → iCloud sync</span> syncs your cellar between your devices through your own private iCloud — the developer has no access to it. Changes to the toggle take effect the next time the app starts.</p>
+      <h3>Backup &amp; restore</h3>
+      <p><span class="ui">More → Backup &amp; restore</span> exports your entire database as a single file (with or without photos) that you can store anywhere, and restores from a backup file. Restoring replaces the current contents, so the app asks you to confirm first.</p>
+      <h3>Starting over</h3>
+      <p style="margin-bottom:0"><span class="ui">More → Clear all data</span> wipes everything after a double confirmation. There is no undo — export a backup first.</p>
+    </div>
+
+    <!-- SETTINGS -->
+    <div class="card">
+      <div class="section-label">Settings</div>
+      <h2>Making Zélar yours</h2>
+      <ul style="margin-top:14px;margin-bottom:0">
+        <li><strong>Currency</strong> — show prices in DKK, EUR, USD, GBP, NOK or SEK. This changes the label only; existing prices are not converted.</li>
+        <li><strong>Stylized rack / fridge</strong> — show your storage as furniture with bottles seen from above, or as a simple diagram.</li>
+        <li><strong>Language</strong> — Zélar is available in Danish and English and follows your device language (adjustable per-app under iOS Settings → Zélar → Language).</li>
+        <li><strong>Share anonymous usage statistics</strong> — under <span class="ui">More → Privacy</span>. Anonymous, event-level statistics help improve the app; turn this off any time. Your wines and notes are never included — see the <a href="index.html?lang=en" data-nav>privacy policy</a>.</li>
+      </ul>
+    </div>
+
+    <!-- FAQ -->
+    <div class="card">
+      <div class="section-label">FAQ</div>
+      <h2>Common questions</h2>
+      <h3>Do I need an account?</h3>
+      <p>No. There are no accounts, sign-ups or passwords. Your data lives on your device and, if you enable it, in your own iCloud.</p>
+      <h3>Can Zélar scan barcodes or labels?</h3>
+      <p>Not currently. The camera is used to attach label and bottle photos to your wines and tastings. For fast entry, try the <span class="ui">Paste from AI</span> workflow — photograph a receipt or list, ask your AI to transcribe it in Zélar's format, and paste.</p>
+      <h3>I marked a bottle as drunk by mistake.</h3>
+      <p>Open the bottle's context menu and choose <span class="ui">Undo — back in stock</span>. The bottle returns to your inventory and the tasting entry is removed.</p>
+      <h3>Does deleting the app delete my data?</h3>
+      <p>Data stored locally is removed with the app. If iCloud sync was on, your data remains in your private iCloud and comes back when you reinstall. Consider exporting a backup file before deleting.</p>
+      <h3>Which devices are supported?</h3>
+      <p style="margin-bottom:0">iPhone and iPad running iOS 17 or later.</p>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="card" style="margin-bottom:0">
+      <div class="section-label">Contact &amp; support</div>
+      <p style="margin-top:14px">Zélar is built and supported by one independent developer. Found a bug, missing a feature, or just stuck? Write directly to:</p>
+      <p><a href="mailto:anders@whaaat.co" class="mono">anders@whaaat.co</a></p>
+      <p style="margin-bottom:0">Please include your app version (shown under <span class="ui">More → About</span>) and, for bugs, a short description of what you did and what happened.</p>
+    </div>
+
+  </div>
+
+  <!-- ============ DANSK ============ -->
+  <div data-lang-block="da" lang="da">
+
+    <div class="card">
+      <p>Zélar er en personlig vinkælder til din iPhone og iPad. Du bygger dine reoler og vinkøleskabe, som de står derhjemme, placerer hver flaske dér, hvor den faktisk ligger, og lader appen holde styr på, hvad der er klar til at drikke. Navnet kommer fra portugisisk <em>zelar</em> — at våge over, at passe på.</p>
+      <p style="margin-bottom:0">Alt gemmes på din enhed (med valgfri iCloud-synkronisering), og du skal ikke oprette nogen konto. Denne guide gennemgår hele appen. Har du spørgsmål, guiden ikke besvarer, så skriv til <a href="mailto:anders@whaaat.co" class="mono">anders@whaaat.co</a>.</p>
+    </div>
+
+    <!-- OVERBLIK -->
+    <div class="card">
+      <div class="section-label">Find rundt</div>
+      <h2>De fem faner</h2>
+      <div class="table-wrap" style="margin-top:16px">
+        <table>
+          <tr><th>Fane</th><th>Hvad den gør</th></tr>
+          <tr><td><span class="ui">Kælder</span></td><td>Dit udgangspunkt: antal flasker og værdi, hurtige filtre, dine reoler — og <span class="ui">+</span>-menuen til at tilføje vine og reoler.</td></tr>
+          <tr><td><span class="ui">Reol</span></td><td>En visuel visning af hver reol og hvert vinkøleskab, som du kan swipe imellem — tryk på et rum eller en hylde for at se indholdet.</td></tr>
+          <tr><td><span class="ui">Indsigt</span></td><td>Din kælder i tal: fordeling efter type, land og årgang, samlet værdi og din personlige smagsprofil.</td></tr>
+          <tr><td><span class="ui">Smagt</span></td><td>Din smagelog — alle flasker du har drukket fra kælderen, plus vine smagt ude på restauranter og hos venner.</td></tr>
+          <tr><td><span class="ui">Mere</span></td><td>Indstillinger, backup &amp; gendannelse, AI-værktøjerne og Markdown-eksport.</td></tr>
+        </table>
+      </div>
+      <p style="margin-top:16px;margin-bottom:0">Første gang du åbner Zélar, introducerer en kort velkomstguide de vigtigste idéer. Du kan altid køre den igen under <span class="ui">Mere → Introduktion</span>.</p>
+    </div>
+
+    <!-- KOM GODT I GANG -->
+    <div class="card">
+      <div class="section-label">Kom godt i gang</div>
+      <h2>Byg din kælder i tre trin</h2>
+      <ol style="margin-top:14px">
+        <li><strong>Opret en enhed.</strong> På Kælder-fanen: tryk <span class="ui">+</span> → <span class="ui">Ny reol eller køleskab</span>. En <em>reol</em> er et gitter af rækker og kolonner med rum (A1, A2, B1 …); et <em>vinkøleskab</em> har hylder, en fast temperatur og valgfrie temperaturzoner. Du kan også oprette en "andet"-enhed til kasser og løs opbevaring. Alt kan omdøbes og ændres senere.</li>
+        <li><strong>Tilføj dine vine.</strong> Tryk <span class="ui">＋ Tilføj vin</span> og udfyld det, du ved — kun vinens navn er påkrævet. Du kan registrere producent, årgang, land, område, appellation, type, stil, druer, økologisk/biodynamisk certificering, pris, alkoholprocent, drikkevindue, note og fotos af etiketten.</li>
+        <li><strong>Placér dine flasker.</strong> Når du tilføjer en vin, vælger du antal flasker og en placering — f.eks. "Reol A · A3". Flasker uden placering samles under <span class="ui">Ingen placering</span>, så du kan ordne dem senere.</li>
+      </ol>
+      <p style="margin-bottom:0">Du kan have flere kældre (hjemme, sommerhus, depotrum …) — skift mellem dem med kælder-vælgeren øverst på Kælder-fanen, eller administrér dem under <span class="ui">Mere → Kældre</span>.</p>
+    </div>
+
+    <!-- HVERDAG -->
+    <div class="card">
+      <div class="section-label">Hverdagsbrug</div>
+      <h2>Flasker ind, flasker ud</h2>
+
+      <h3>Drik en flaske</h3>
+      <p>Åbn en vin, vælg en flaske og tryk <span class="ui">Drik</span>. Du kan angive dato, en vurdering på 1–5 stjerner, en smagsnote og anledningen — og gemme flasken som drukket. Flasken forlader dit lager og dukker op i din smagelog. Trykkede du for hurtigt? Brug <span class="ui">Fortryd — tilbage på lager</span> i flaskens menu.</p>
+
+      <h3>Redigér beholdning</h3>
+      <p>Har du købt flere af en vin, du allerede har? Brug <span class="ui">Redigér beholdning</span> på vinens side til at tilføje flasker (med placering og købsdato) eller fjerne fejltalte. Fjernede flasker slettes blot — de markeres ikke som drukket.</p>
+
+      <h3>Flyt flasker</h3>
+      <p>Brug <span class="ui">Flyt</span> på en flaske for at give den et nyt rum eller en ny hylde. På Reol-fanen kan du trykke på et rum for at se indholdet og tilføje vin direkte til netop den plads.</p>
+
+      <h3>Find en vin</h3>
+      <p style="margin-bottom:0"><span class="ui">Se alle vine</span> åbner den fulde liste med søgning (på navn, drue, land eller område) og filterknapper: <span class="ui">Alle · På lager · Drukket · Uden placering · Rød · Hvid · Klar nu</span>.</p>
+    </div>
+
+    <!-- DRIKKEVINDUER -->
+    <div class="card">
+      <div class="section-label">Drikkevinduer</div>
+      <h2>Vid hvornår proppen skal op</h2>
+      <p style="margin-top:14px">Giv en vin et drikkevindue (f.eks. "2026–2042", eventuelt med et peak-år), og Zélar følger med i, hvor vinen er i sit liv: for ung, klar, på sit peak, lukker snart eller forpasset. Kælder-fanen viser en genvej til alt, der er <strong>klar at drikke nu</strong>, og Indsigt viser, hvad der er klar, og hvad du bør <strong>drikke snart</strong> — så intet stille og roligt glider forbi sit vindue.</p>
+    </div>
+
+    <!-- SMAGNINGER -->
+    <div class="card">
+      <div class="section-label">Smagninger</div>
+      <h2>Din smagelog</h2>
+      <p style="margin-top:14px"><span class="ui">Smagt</span>-fanen samler alt, du har smagt: flasker drukket fra din egen kælder og vine smagt andre steder.</p>
+      <ul style="margin-bottom:0">
+        <li><strong>Smagt en fantastisk vin på restaurant?</strong> Tryk <span class="ui">＋ Ny smagning</span> og registrér den med sted, dato, vurdering, note, pris og fotos — uden at den behøver ligge i kælderen.</li>
+        <li><strong>Købte du den bagefter?</strong> Brug <span class="ui">Konvertér til lager</span> på smagningen for at oprette den som kældervin med flasker — din vurdering og note følger med. Smagningen bliver i din log, markeret som konverteret.</li>
+      </ul>
+    </div>
+
+    <!-- INDSIGT -->
+    <div class="card">
+      <div class="section-label">Indsigt</div>
+      <h2>Din kælder i tal</h2>
+      <p style="margin-top:14px"><span class="ui">Indsigt</span>-fanen viser din samling fordelt på type, land og årgang, sammen med samlet værdi og gennemsnitspris pr. flaske — plus statistik for hvert land.</p>
+      <p style="margin-bottom:0">Efterhånden som du vurderer vine, låser du <span class="ui">Min smag</span> op — en personlig smagsprofil bygget på dine egne vurderinger: stilen du elsker mest, dine yndlingsdruer med gennemsnitsscore og dine topvurderinger.</p>
+    </div>
+
+    <!-- AI -->
+    <div class="card">
+      <div class="section-label">Brug din egen AI</div>
+      <h2>Kopiér og indsæt — ingen API-nøgler</h2>
+      <p style="margin-top:14px">Zélar arbejder sammen med den AI-assistent, du allerede bruger (ChatGPT, Claude eller en anden). Alt foregår via udklipsholderen — appen taler aldrig selv med nogen AI-tjeneste.</p>
+
+      <h3>Spørg din AI</h3>
+      <p>Under <span class="ui">Mere → Spørg din AI</span> vælger du en opgave — <em>madmatch til aftensmad</em>, <em>vurdér min kælder</em>, <em>indkøbsforslag</em> eller <em>vinkortet på restauranten</em> — og trykker <span class="ui">Kopiér prompt</span>. Du får en færdig prompt med et kompakt overblik over din kælder og smagehistorik. Indsæt den i din AI, og få svar om netop <em>dine</em> vine.</p>
+
+      <h3>Indsæt fra AI</h3>
+      <p>Har du bedt din AI om vinforslag eller om at aflæse en kvittering eller kælderliste? <span class="ui">Mere → Indsæt fra AI</span> genkender struktureret tekst fra udklipsholderen og opretter vinene automatisk — inklusive placering. Tryk på <span class="ui">?</span> i hjørnet for det præcise format og en <span class="ui">Kopiér format</span>-knap — kopiér den til din AI først, så kommer svarene tilbage i en form, Zélar forstår (både danske og engelske feltnavne genkendes). Der findes en tilsvarende import af smagte vine på Smagt-fanen.</p>
+
+      <h3>Eksportér som Markdown</h3>
+      <p style="margin-bottom:0"><span class="ui">Mere → Eksportér som Markdown</span> laver hele din kælder om til et læsevenligt dokument — grupperet efter kælder, reol og hylde, med uplacerede flasker og din smagehistorik. <span class="ui">Kopiér</span> det eller <span class="ui">Del som fil</span>. Tip: læg det i et AI-projekt eller en chat, så kender din assistent altid din samling.</p>
+    </div>
+
+    <!-- SYNK & BACKUP -->
+    <div class="card">
+      <div class="section-label">Synkronisering, backup &amp; gendannelse</div>
+      <h2>Pas godt på dine data</h2>
+      <h3>iCloud-synkronisering</h3>
+      <p><span class="ui">Mere → Data → iCloud-synkronisering</span> synkroniserer din kælder mellem dine enheder via din egen private iCloud — udvikleren har ingen adgang til den. Ændringer af indstillingen træder i kraft, næste gang appen startes.</p>
+      <h3>Backup &amp; gendannelse</h3>
+      <p><span class="ui">Mere → Backup &amp; gendannelse</span> eksporterer hele din database som én fil (med eller uden billeder), som du kan gemme hvor som helst — og gendanner fra en backupfil. Gendannelse erstatter det nuværende indhold, så appen beder dig bekræfte først.</p>
+      <h3>Start forfra</h3>
+      <p style="margin-bottom:0"><span class="ui">Mere → Ryd alle data</span> sletter alt efter dobbelt bekræftelse. Det kan ikke fortrydes — eksportér en backup først.</p>
+    </div>
+
+    <!-- INDSTILLINGER -->
+    <div class="card">
+      <div class="section-label">Indstillinger</div>
+      <h2>Gør Zélar til din egen</h2>
+      <ul style="margin-top:14px;margin-bottom:0">
+        <li><strong>Valuta</strong> — vis priser i DKK, EUR, USD, GBP, NOK eller SEK. Det ændrer kun visningen; eksisterende priser omregnes ikke.</li>
+        <li><strong>Stiliseret reol / køleskab</strong> — vis din opbevaring som møbler med flasker set fra oven, eller som et enkelt diagram.</li>
+        <li><strong>Sprog</strong> — Zélar findes på dansk og engelsk og følger enhedens sprog (kan ændres pr. app under iOS Indstillinger → Zélar → Sprog).</li>
+        <li><strong>Del anonym brugsstatistik</strong> — under <span class="ui">Mere → Privatliv</span>. Anonym statistik på hændelsesniveau hjælper med at forbedre appen; slå den fra når som helst. Dine vine og noter sendes aldrig med — se <a href="index.html?lang=da" data-nav>privatlivspolitikken</a>.</li>
+      </ul>
+    </div>
+
+    <!-- FAQ -->
+    <div class="card">
+      <div class="section-label">FAQ</div>
+      <h2>Ofte stillede spørgsmål</h2>
+      <h3>Skal jeg oprette en konto?</h3>
+      <p>Nej. Der er ingen konti, tilmeldinger eller adgangskoder. Dine data ligger på din enhed — og i din egen iCloud, hvis du slår synkronisering til.</p>
+      <h3>Kan Zélar scanne stregkoder eller etiketter?</h3>
+      <p>Ikke i øjeblikket. Kameraet bruges til at vedhæfte etiket- og flaskefotos til dine vine og smagninger. Vil du taste hurtigt ind, så prøv <span class="ui">Indsæt fra AI</span>: fotografér en kvittering eller liste, bed din AI om at aflæse den i Zélars format, og indsæt.</p>
+      <h3>Jeg kom til at markere en flaske som drukket.</h3>
+      <p>Åbn flaskens menu og vælg <span class="ui">Fortryd — tilbage på lager</span>. Flasken vender tilbage til dit lager, og smagningen fjernes.</p>
+      <h3>Slettes mine data, hvis jeg sletter appen?</h3>
+      <p>Data gemt lokalt fjernes sammen med appen. Var iCloud-synkronisering slået til, ligger dine data fortsat i din private iCloud og vender tilbage, når du geninstallerer. Overvej at eksportere en backupfil, før du sletter.</p>
+      <h3>Hvilke enheder understøttes?</h3>
+      <p style="margin-bottom:0">iPhone og iPad med iOS 17 eller nyere.</p>
+    </div>
+
+    <!-- KONTAKT -->
+    <div class="card" style="margin-bottom:0">
+      <div class="section-label">Kontakt &amp; support</div>
+      <p style="margin-top:14px">Zélar bygges og supporteres af én uafhængig udvikler. Har du fundet en fejl, savner du en funktion, eller er du gået i stå? Skriv direkte til:</p>
+      <p><a href="mailto:anders@whaaat.co" class="mono">anders@whaaat.co</a></p>
+      <p style="margin-bottom:0">Skriv gerne din appversion med (findes under <span class="ui">Mere → Om</span>) og — ved fejl — en kort beskrivelse af, hvad du gjorde, og hvad der skete.</p>
+    </div>
+
+  </div>
+
+  <div style="text-align:center;margin-top:48px;color:#7d7364;font-size:12px">
+    zélar · <span class="mono">co.whaaat.zelar</span>
+  </div>
+
+</div>
+</section>
+
+<script>
+(function(){
+  var TITLES = {
+    en: 'Zélar — Support',
+    da: 'Zélar — Support & brugerguide'
+  };
+
+  function currentLangFromUrl(){
+    var params = new URLSearchParams(location.search);
+    var lang = params.get('lang');
+    if(!lang && (location.hash === '#da' || location.hash === '#en')) lang = location.hash.slice(1);
+    return lang;
+  }
+
+  function setLang(lang, updateUrl){
+    lang = lang === 'da' ? 'da' : 'en';
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.lang = lang;
+    document.title = TITLES[lang];
+    try{ localStorage.setItem('zelar-lang', lang); }catch(e){}
+
+    document.querySelectorAll('[data-set-lang]').forEach(function(btn){
+      btn.classList.toggle('active', btn.getAttribute('data-set-lang') === lang);
+    });
+
+    // Keep nav links deep-linkable in the current language
+    document.querySelectorAll('[data-nav]').forEach(function(a){
+      var base = a.getAttribute('href').split('?')[0];
+      a.setAttribute('href', base + '?lang=' + lang);
+    });
+
+    if(updateUrl){
+      var params = new URLSearchParams(location.search);
+      params.set('lang', lang);
+      history.replaceState(null, '', location.pathname + '?' + params.toString());
+    }
+  }
+
+  // Initial language: URL (?lang= or #da) > saved preference > browser language > EN
+  var lang = currentLangFromUrl();
+  if(!lang){
+    try{ lang = localStorage.getItem('zelar-lang'); }catch(e){}
+  }
+  if(!lang){
+    lang = (navigator.language || '').toLowerCase().indexOf('da') === 0 ? 'da' : 'en';
+  }
+  setLang(lang, currentLangFromUrl() !== null);
+
+  document.querySelectorAll('[data-set-lang]').forEach(function(btn){
+    btn.addEventListener('click', function(){ setLang(btn.getAttribute('data-set-lang'), true); });
+  });
+})();
+</script>
+</body>
+</html>
